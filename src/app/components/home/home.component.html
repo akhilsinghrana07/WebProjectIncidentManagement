@@ -1,0 +1,75 @@
+<!-- <ng-container *ngIf="user$ | async as user">
+    <h1>Welcome to the home page, {{user.displayName}}!</h1>
+</ng-container> -->
+
+<ng-container>
+    <h1>Welcome to the home page</h1>
+    <div class="d-flex">
+        <button type="button" (click)="clickAdd()" data-bs-toggle="modal" data-bs-target="#exampleModal"class="btn btn-success">
+            Add Ticket
+        </button>
+    </div>
+    <table class="table">
+        <tr>
+            <th scope="col">Ticket number</th>
+            <th scope="col">Date</th>
+            <th scope="col">Request Details</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+        </tr>
+
+    <tbody>
+        <tr *ngFor="let row of incidentData">
+            <td>{{row.id}}</td>
+            <td>{{row.date}}</td>
+            <td>{{row.requestDetails}}</td>
+            <td>{{row.priority}}</td>
+            <td>{{row.status}}</td>
+            <td>
+                <button (click)="onEdit(row)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">Edit</button>
+                <button (click)="deleteIncidents(row)" class="btn btn-danger">Delete</button>
+        </td>
+        </tr>
+    </tbody>
+    </table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"  id="exampleModalLabel" style="font-size: xx-large;">Incident Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Date</label>
+                  <input type="text" formControlName="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Request Details</label>
+                  <input type="text" formControlName="requestDetails" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Priority</label>
+                    <input type="text" formControlName="priority" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Status</label>
+                    <input type="text" formControlName="status" class="form-control" id="exampleInputPassword1">
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" (click)="postHomeDetails()" class="btn btn-primary">Add</button>
+          <button type="button" *ngIf="showUpdate" (click)="updateIncidents()" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "ticketNumber": 0,
+      "date": "22/11/2022",
+      "requestDetails": "hello world",
+      "priority": "High",
+      "status": "active",
+      "id": 2
+    },
+    {
+      "ticketNumber": 0,
+      "date": "02/01/2022",
+      "requestDetails": "Emergency",
+      "priority": "High",
+      "status": "active",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "date": "01/02/2022",
+      "requestDetails": "asva",
+      "priority": "asvasv",
+      "status": "z asva"
+    },
+    {
+      "id": 5,
+      "date": "01/02/2022",
+      "requestDetails": "as",
+      "priority": "high",
+      "status": "active"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
